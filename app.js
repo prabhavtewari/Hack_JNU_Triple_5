@@ -55,6 +55,9 @@ app.get('/symptom',(req,res)=>{
 app.get('/diagonistic',(req,res)=>{
   res.render('diagonisticlocator')
 })
+app.get('/diagonisticlocator',(req,res)=>{
+  res.render('diagonisticlocator')
+})
 app.get('/patientsignup',(req,res)=>{
     res.render('patientsignup')
 })
