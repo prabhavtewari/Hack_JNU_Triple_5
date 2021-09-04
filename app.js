@@ -6,6 +6,7 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const Event = require('./models/doctor')
 const User = require('./models/patient')
+const Appoint = require('./models/appoint')
 const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
 const request = require('request');
