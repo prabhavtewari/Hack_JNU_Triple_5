@@ -5,7 +5,7 @@ const docSchema = new mongoose.Schema({
   password: String,
   specialization: String,
   name: String,
-  phone: number
+  phone: String
 },{timestamps:true});
 
 
