@@ -1,17 +1,18 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>SAGE</title>
     <link rel="icon" href="img/favicon.png">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="styles/book.css">
 </head>
-<body>
 
+<body>
+    <!--::header part start::-->
     <header class="main_menu home_menu">
         <div class="container">
             <div class="row align-items-center">
@@ -73,24 +74,34 @@
             </div>
         </div>
     </header>
+    <!-- Header part end-->
 
-    <section class="bookcont">
-        <div class="grid">
-  
-            <% doctors.forEach(function(doc,i){ %>
-            <div class="doctorcard">
-                <span><%= doc.name %> </span>
-               <span> Specialization : <%= doc.specialization %></span>
-               <span> Phone : <%= doc.phone %> </span>
-                <button class="btn_2">Book</button>
+    <!-- banner part start-->
+    <section class="banner_part">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-xl-5">
+                    <div class="banner_text">
+                        <div class="banner_text_iner">
+                            <div class="deliverhead">Have medicines derivered right to your door.</div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="banner_img">
+                        <img src="img/pharma.jpg" alt="">
+                    </div>
+                </div>
             </div>
-
-    <% }) %>
         </div>
-
     </section>
+    <!-- banner part start-->
 
 
+    
+  
+    <!-- footer part start-->
     <footer class="footer-area">
         <div class="footer section_padding">
             <div class="container">
@@ -133,7 +144,12 @@
         </div>
 
     </footer>
+
+
+
     <script src="assets/jquery-1.12.1.min.js"></script>
     <script src="assets/bootstrap.min.js"></script>
+
 </body>
+
 </html>

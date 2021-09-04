@@ -1,0 +1,51 @@
+.bookcont
+{
+    margin: 80px 10% 0 10%;
+    margin-bottom: 50px;
+}
+.grid
+{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+    grid-auto-rows: auto;     
+    grid-gap: 1rem;
+    align-items: center;
+}
+.doctorcard
+{
+    border: 2px solid #0070fa;
+    border-radius: 5px;
+    padding: .5rem;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.doctorcard span:nth-child(1) {
+    font-size: 18px;
+    font-weight: 700;
+}
+.doctorcard span:nth-child(3) {
+margin-bottom: 10px;
+}
+.doctorcard span {
+    display: block; 
+}
+
+.btn_2
+{
+    height: fit-content;
+    padding: 5px 40px;
+    outline: none;
+    border: none;
+	cursor: pointer;
+
+}
+@media screen and (max-width: 450px) {
+    .grid
+    {
+
+        grid-template-columns: repeat(auto-fill,100%);
+
+    }
+  }

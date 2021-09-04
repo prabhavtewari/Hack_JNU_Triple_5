@@ -70,6 +70,12 @@ app.get('/doctorsignup',(req,res)=>{
 app.get('/pharmacylocator',(req,res)=>{
     res.render('pharmalocator')
 })
+app.get('/onlinepharma',(req,res)=>{
+    res.render('onlinepharma')
+})
+app.get('/homepharmacy',(req,res)=>{
+    res.render('onlinepharma')
+})
 app.get('/bookappointment',async (req,res)=>{
   await Doctor.find()
     .then((result)=>{
