@@ -6262,3 +6262,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+.deliverhead
+{
+  font-size: 50px;
+  font-family: "Playfair Display", serif;
+  font-weight: 800;
+}

@@ -61,8 +61,14 @@ app.get('/diagonisticlocator',(req,res)=>{
 app.get('/patientsignup',(req,res)=>{
     res.render('patientsignup')
 })
+app.get('/homediagnosis',(req,res)=>{
+    res.render('homediagnosis')
+})
 app.get('/doctorsignup',(req,res)=>{
     res.render('doctorsignup')
+})
+app.get('/pharmacylocator',(req,res)=>{
+    res.render('pharmalocator')
 })
 app.get('/bookappointment',async (req,res)=>{
   await Doctor.find()

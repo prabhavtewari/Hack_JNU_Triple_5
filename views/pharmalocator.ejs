@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document</title>
+       <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="stylesheet" type="text/css" href="styles/diagonisticlocator.css" />
+    <script src="assets/pharmalocator.js"></script>
+  </head>
+  
+
+  <body>
+
+
+    <header class="main_menu home_menu">
+      <div class="container">
+          <div class="row align-items-center">
+              <div class="col-lg-12">
+                  <nav class="navbar navbar-expand-lg navbar-light">
+                      <a class="navbar-brand" href="/"> <img src="img/logo.png" alt="logo"> </a>
+                      <button class="navbar-toggler" type="button" data-toggle="collapse"
+                          data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                          aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="navbar-toggler-icon"></span>
+                      </button>
+
+                      <div class="collapse navbar-collapse main-menu-item justify-content-end"
+                          id="navbarSupportedContent">
+                          <ul class="navbar-nav align-items-center">
+                              <li class="nav-item active">
+                                  <a class="nav-link" href="/">Home</a>
+                              </li>
+                              <li class="nav-item">
+                                  <a class="nav-link" href="/symptom">Symptom Checker</a>
+                              </li>
+
+                              <li class="nav-item dropdown">
+                                  <a class="nav-link dropdown-toggle" href="/bookappointment" id="navbarDropdown"
+                                      role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      Appointment
+                                  </a>
+                                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                      <a class="dropdown-item" href="/bookappointment">Book Appointment</a>
+                                      <a class="dropdown-item" href="/viewappointment">View Appointment</a>
+                                  </div>
+                              </li>
+                              <li class="nav-item dropdown">
+                                  <a class="nav-link dropdown-toggle" href="/diagnostics" id="navbarDropdown_1"
+                                      role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      Diagnostics
+                                  </a>
+                                  <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
+                                      <a class="dropdown-item" href="/diagonisticlocator">Diagnostic Center Locator</a>
+                                      <a class="dropdown-item" href="/homediagnosis">At Home Diagnosis</a>
+                                  </div>
+                              </li>
+                              <li class="nav-item dropdown">
+                                  <a class="nav-link dropdown-toggle" href="/pharmacy" id="navbarDropdown_1"
+                                      role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      Pharmacy
+                                  </a>
+                                  <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
+                                      <a class="dropdown-item" href="/pharmacylocator">Pharmacy Locator</a>
+                                      <a class="dropdown-item" href="/homepharmacy">Online Pharma</a>
+                                  </div>
+                              </li>
+
+
+                          </ul>
+                      </div>
+                  </nav>
+              </div>
+          </div>
+      </div>
+  </header>
+
+
+
+      <div class="hospital-search">
+      <!-- <div id="findhospital">Find Hospitals In:</div> -->
+        <div class="lhead">Pharmacy Locator</div>
+      <div id="locationField">
+        <input class="form-control entercity" id="autocomplete" placeholder="Enter a City" type="text" />
+      </div>
+      <!-- <div  id="selectcountry">Select Country</div> -->
+      <div id="controls">
+        <select class="form-control entercountry" id="country">
+          <option value="all">All</option>
+          <option value="au">Australia</option>
+          <option value="br">Brazil</option>
+          <option value="ca">Canada</option>
+          <option value="fr">France</option>
+          <option value="de">Germany</option>
+          <option value="mx">Mexico</option>
+          <option value="nz">New Zealand</option>
+          <option value="it">Italy</option>
+          <option value="za">South Africa</option>
+          <option value="es">Spain</option>
+          <option value="pt">Portugal</option>
+          <option value="us">U.S.A.</option>
+          <option value="uk">United Kingdom</option>
+          <option value="ind" selected>India</option>
+        </select> 
+      </div>
+
+    </div>
+    <!-- </div> -->
+
+    <div id="map"></div>
+
+    <div id="listing">
+      <table id="resultsTable">
+        <tbody id="results"></tbody>
+      </table>
+    </div>
+
+    <div style="display: none">
+      <div id="info-content">
+        <table>
+          <tr id="iw-url-row" class="iw_table_row">
+            <td id="iw-icon" class="iw_table_icon"></td>
+            <td id="iw-url"></td>
+          </tr>
+          <tr id="iw-address-row" class="iw_table_row">
+            <td class="iw_attribute_name">Address:</td>
+            <td id="iw-address"></td>
+          </tr>
+          <tr id="iw-phone-row" class="iw_table_row">
+            <td class="iw_attribute_name">Telephone:</td>
+            <td id="iw-phone"></td>
+          </tr>
+          <tr id="iw-rating-row" class="iw_table_row">
+            <td class="iw_attribute_name">Rating:</td>
+            <td id="iw-rating"></td>
+          </tr>
+          <tr id="iw-website-row" class="iw_table_row">
+            <td class="iw_attribute_name">Website:</td>
+            <td id="iw-website"></td>
+          </tr>
+        </table>
+      </div>
+    
+
+     
+ 
+    <div id="map"></div>
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCdSC_KnZehmnmorkzZ00k4auv9boeKLM&libraries=places&callback=initMap&v=weekly"
+      
+      async 
+    ></script>
+    <script src="assets/jquery-1.12.1.min.js"></script>
+    <script src="assets/bootstrap.min.js"></script>
+  </body>
+</html>
