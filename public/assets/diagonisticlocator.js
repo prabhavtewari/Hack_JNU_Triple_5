@@ -4,7 +4,7 @@ let infoWindow;
 let markers = [];
 let autocomplete;
 const countryRestrict = { country: "ind" };
-const MARKER_PATH ="img/hospital.png";
+const MARKER_PATH ="img/HospitalMarker";
 const hostnameRegexp = new RegExp("^https?://.+?/");
 const countries = {
   ind: {
