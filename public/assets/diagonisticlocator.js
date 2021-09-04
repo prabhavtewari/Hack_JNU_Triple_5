@@ -1,10 +1,10 @@
-let map,service;
+let map,service,myLatlng;
 let places;
 let infoWindow;
 let markers = [];
 let autocomplete;
 const countryRestrict = { country: "ind" };
-const MARKER_PATH ="img/hospital.png";
+const MARKER_PATH ="img/HospitalMarker";
 const hostnameRegexp = new RegExp("^https?://.+?/");
 const countries = {
   ind: {
@@ -64,72 +64,9 @@ const countries = {
     zoom: 5,
   },
 };
-
-async function initMap() {
-  map = new google.maps.Map(document.getElementById("map"), {
-    zoom: countries["ind"].zoom,
-    center: countries["ind"].center,
-    mapTypeControl: false,
-    panControl: false,
-    zoomControl: false,
-    streetViewControl: false,
-    style:styles["default"]
-  });
-
-  x=navigator.geolocation;
-  x.getCurrentPosition(success,failure);
-  function failure(){
-    
-  }
-  function success(position) {
-
-    myLatlng={ lat: position.coords.latitude, lng: position.coords.longitude };
-    map.setOptions({
-      center: myLatlng,
-      zoom: 16
-    });  
-  }
-
-
- 
-  infoWindow = new google.maps.InfoWindow({
-    content: document.getElementById("info-content"),
-  });
-  // Create the autocomplete object and associate it with the UI input control.
-  // Restrict the search to the default country, and to place type "cities".
-  autocomplete = new google.maps.places.Autocomplete(
-    document.getElementById("autocomplete"),
-    {
-      types: ["(cities)"],
-      componentRestrictions: countryRestrict,
-    }
-  );
-  places = new google.maps.places.PlacesService(map);
-  autocomplete.addListener("place_changed", onPlaceChanged);
-  // Add a DOM event listener to react when the user selects a country.
-  document
-    .getElementById("country")
-    .addEventListener("change", setAutocompleteCountry);
-
-    const marker = new google.maps.Marker({
-      position: myLatlng,
-      map,
-      icon: {
-        url:'https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/geocode-71.png',
-        size: new google.maps.Size(10, 10),
-        origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(17, 34),
-        scaledSize: new google.maps.Size(10, 10)
-
-    }  
-    });
-}
 const styles = {
   default: [
-
-    { "featureType": "administrative", 
-    "stylers": [ { "visibility": "off" } ] 
-},{ 
+   { 
     "featureType": "transit", 
     "stylers": [ { "visibility": "off" } ] 
 },{ 
@@ -447,6 +384,66 @@ const styles = {
     },
   ],
 };
+async function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    zoom: countries["ind"].zoom,
+    center: countries["ind"].center,
+    mapTypeControl: false,
+    panControl: false,
+    zoomControl: false,
+    streetViewControl: false,
+    styles:styles["default"]
+  });
+
+  x=navigator.geolocation;
+  x.getCurrentPosition(success,failure);
+  function failure(){
+    
+  }
+  function success(position) {
+
+    myLatlng={ lat: position.coords.latitude, lng: position.coords.longitude };
+    map.setOptions({
+      center: myLatlng,
+      zoom: 16
+    });  
+  }
+
+
+ 
+  infoWindow = new google.maps.InfoWindow({
+    content: document.getElementById("info-content"),
+  });
+  // Create the autocomplete object and associate it with the UI input control.
+  // Restrict the search to the default country, and to place type "cities".
+  autocomplete = new google.maps.places.Autocomplete(
+    document.getElementById("autocomplete"),
+    {
+      types: ["(cities)"],
+      componentRestrictions: countryRestrict,
+    }
+  );
+  places = new google.maps.places.PlacesService(map);
+  autocomplete.addListener("place_changed", onPlaceChanged);
+  // Add a DOM event listener to react when the user selects a country.
+  document
+    .getElementById("country")
+    .addEventListener("change", setAutocompleteCountry);
+
+    const marker = new google.maps.Marker({
+      position: myLatlng,
+      map,
+      icon: {
+        url:'https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/geocode-71.png',
+        size: new google.maps.Size(10, 10),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(17, 34),
+        scaledSize: new google.maps.Size(10, 10)
+
+    }  
+    });
+}
+
 
 // When the user selects a city, get the place details for the city and
 // zoom the map in on the city.
