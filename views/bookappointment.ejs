@@ -7,11 +7,13 @@
     <title>Document</title>
 </head>
 <body>
+    <% doctors.forEach(function(doc,i){ %>
     <div class="doctor-list">
-        Name : 
-        Specialization : 
-        Phone : 
-        <button></button>
+        Name : <%= doc.name %> <br>
+        Specialization : <%= doc.specialization %> <br>
+        Phone : <%= doc.phone %> <br>
+        <button>Book</button>
     </div>
+    <% }) %>
 </body>
 </html>

@@ -64,6 +64,15 @@ app.get('/patientsignup',(req,res)=>{
 app.get('/doctorsignup',(req,res)=>{
     res.render('doctorsignup')
 })
+app.get('/bookappointment',async (req,res)=>{
+  await Doctor.find()
+    .then((result)=>{
+      res.render('bookappointment',{doctors:result})
+    })
+    .catch((err)=>{
+      console.log(err);
+  });
+})
 app.post('/patientsignup',(req,res)=>{
     const patient = new User(req.body);
      patient.save()
