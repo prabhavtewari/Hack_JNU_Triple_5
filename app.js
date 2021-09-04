@@ -39,5 +39,11 @@ app.use(morgan('dev'));
 
 
 app.get('/',(req,res)=>{
-    res.json({success: true});
+    res.render('index')
+})
+app.get('/patientsignup',(req,res)=>{
+    res.render('patientsignup')
+})
+app.get('/doctorsignup',(req,res)=>{
+    res.render('doctorsignup')
 })
