@@ -4,7 +4,7 @@ const env = require("./environment.js");
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-const Event = require('./models/doctor')
+const Doctor = require('./models/doctor')
 const User = require('./models/patient')
 const Appoint = require('./models/appoint')
 const cookieParser = require('cookie-parser');
@@ -37,7 +37,6 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(morgan('dev'));
 
-
 app.get('/',(req,res)=>{
     res.render('index')
 })
@@ -46,4 +45,24 @@ app.get('/patientsignup',(req,res)=>{
 })
 app.get('/doctorsignup',(req,res)=>{
     res.render('doctorsignup')
+})
+app.post('/patientsignup',(req,res)=>{
+    const patient = new User(req.body);
+     patient.save()
+         .then((result)=>{
+             res.redirect(`/`)
+        })
+        .catch((err)=>{
+             console.log(err);
+        });
+})
+app.post('/doctorsignup',(req,res)=>{
+    const doctor = new Doctor(req.body);
+     doctor.save()
+         .then((result)=>{
+             res.redirect(`/`)
+        })
+        .catch((err)=>{
+             console.log(err);
+        });
 })

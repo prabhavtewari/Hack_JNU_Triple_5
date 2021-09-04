@@ -7,7 +7,11 @@ const appointSchema = new Schema({
     docid: String,
     patname: String,
     docname: String,
-    status: String
+    url: String,
+    status: {
+        type:String,
+        default: "wait"
+    }
 },{timestamps:true});
 
 const Appoint = mongoose.model('Appoint',appointSchema);
