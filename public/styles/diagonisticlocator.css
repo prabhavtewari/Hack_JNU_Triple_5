@@ -1,0 +1,135 @@
+
+ #map {
+        height: 100%;
+      }
+      
+     
+ html, body, #map-canvas {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+     
+      
+body {
+  padding: 0 !important;
+}
+
+table {
+  font-size: 15px;
+}
+
+.hospital-search {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: rgb(17, 13, 13);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  left: 0;
+  position: absolute;
+  top: 20px;
+  width: 800px;
+  z-index: 1;
+}
+
+
+#listing {
+  position: absolute;
+  width: 400px;
+  height: 470px;
+  overflow: auto;
+  left: 800px;
+  top: 20px;
+  cursor: pointer;
+  overflow-x: hidden;
+}
+
+#findhospital {
+  font-size: 14px;
+}
+
+#locationField {
+  -webkit-box-flex: 1 1 190px;
+  -ms-flex: 1 1 190px;
+  flex: 1 1 190px;
+  margin: 0 8px;
+}
+
+#controls {
+  -webkit-box-flex: 1 1 140px;
+  -ms-flex: 1 1 140px;
+  flex: 1 1 140px;
+}
+
+#autocomplete {
+  width: 100%;
+}
+
+#country {
+  width: 100%;
+}
+
+.placeIcon {
+  width: 20px;
+  height: 34px;
+  margin: 4px;
+}
+
+.hospitalIcon {
+  width: 40px;
+  height: 40px;
+}
+
+#resultsTable {
+  border-collapse: collapse;
+  width: 400px;
+}
+
+#rating {
+  font-size: 16px;
+  font-family: Arial Unicode MS;
+}
+
+.iw_table_row {
+  height: 30px;
+}
+
+.iw_attribute_name {
+  font-weight: bold;
+  text-align: right;
+}
+
+.iw_table_icon {
+  text-align: right;
+}
+
+/* map style selector */
+      .map-control {
+        position:relative;
+       
+        background-color: rgb(24, 22, 22);
+        border: 4px solid rgb(247, 236, 236);
+        box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
+        font-family: "Roboto", "sans-serif";
+        margin: 50px;
+      
+        display: none;
+      }
+      
+   
+      #map .map-control {
+        
+        display: block;
+        left: 1px;
+        top: 50px;
+      }
+      
+      .selector-control {
+        font-size: 16px;
+        line-height: 50px;
+        padding-left: 51px;
+        padding-right: 51px;
+        right:10px;
+      }
