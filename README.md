@@ -1,3 +1,20 @@
+
+***
+
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/prabhavtewari/Sage_Hack_JNU_Triple_5/blob/main/public/img/logo.png">
+    <img src="./public/img/logo.png" alt="Logo" width="100" >
+  </a>
+
+  <h3 align="center">Sage</h3>
+  <p align="center">
+  The only Healthcare Application you need!
+</p>
+
+***
+
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/uses-html.svg)](https://forthebadge.com)
@@ -8,21 +25,8 @@
 
 [![forthebadge](https://img.shields.io/badge/Made%20using-Google%20Maps-blue)](https://forthebadge.com)
 
-***
+[![forthebadge](https://img.shields.io/badge/Made%20using-Endless%20Medical-blue)](https://forthebadge.com)
 
-<!-- PROJECT LOGO -->
-<br />
-<p align="center">
-  <a href="https://github.com/prabhavtewari/Sage_Hack_JNU_Triple_5/blob/main/public/img/logo.png">
-    <img src="./public/img/logo.png" alt="Logo" width="100" height="80">
-  </a>
-
-  <h3 align="center">Sage</h3>
-  <p align="center">
-  Set Events . Join Events . Play!
-</p>
-
-***
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
@@ -37,16 +41,14 @@
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#dependencies">Dependencies</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#how-to-use">How To Use</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
+    <li><a href="contributing">Contributing</a></li>
+    <li><a href="license">License</a></li>
   </ol>
 </details>
 
@@ -61,6 +63,9 @@
 * [Express.js](https://expressjs.com)
 * [MongoDB](https://www.mongodb.com/cloud)
 * [Google Maps API](https://developers.google.com/maps)
+* [Endless Medical API](https://endlessmedical.com/)
+* [WebRTC](https://webrtc.org/)
+* [Socket.io](https://socket.io/)
 * [JWT](https://jwt.io/)
 * [EJS](https://ejs.co/)
 
@@ -68,46 +73,51 @@
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
+### Dependencies:
 
-This is an example of how to list things you need to use the software and how to install them.
+* Node-
+  Go to [official Node.js website](https://nodejs.org/) and download the installer.
+  
+* Google Maps API key-
+  Go to [Google Maps Platform](https://developers.google.com/maps) to get your free API key.
+  
+* MongoDB url-
+  Visit [MongoDB](https://www.mongodb.com/) 
+  
+* Browser Version-Latest  
+ 
 * npm
   ```sh
   npm install npm@latest -g
   ```
 
+
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```JS
-   const API_KEY = 'ENTER YOUR API';
-   ```
 
-
+    $ git clone https://github.com/prabhavtewari/Sage_Hack_JNU_Triple_5.git
+    $ cd Sage_Hack_JNU_Triple_5.
+    $ npm install
+ 
 
 <!-- USAGE EXAMPLES -->
-## Usage
+## Running
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+    nodemon
+     //or
+    node app.js
+  
+  ***
+## How To Use
 
-_For more examples, please refer to the [Documentation](https://example.com)_
 
 
+***
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
+
 * [Google Maps API](https://developers.google.com/maps)
 * [Endless Medical API](https://endlessmedical.com/)
 * [Img Shields](https://shields.io)
