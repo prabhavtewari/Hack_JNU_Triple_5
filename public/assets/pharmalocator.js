@@ -4,7 +4,7 @@ let infoWindow;
 let markers = [];
 let autocomplete;
 const countryRestrict = { country: "ind" };
-const MARKER_PATH ="img/HospitalMarker";
+const MARKER_PATH ="img/pharma";
 const hostnameRegexp = new RegExp("^https?://.+?/");
 const countries = {
   ind: {
@@ -435,10 +435,10 @@ async function initMap() {
       map,
       icon: {
         url:'https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/geocode-71.png',
-        size: new google.maps.Size(10, 10),
+        size: new google.maps.Size(100, 100),
         origin: new google.maps.Point(0, 0),
         anchor: new google.maps.Point(17, 34),
-        scaledSize: new google.maps.Size(10, 10)
+        scaledSize: new google.maps.Size(100, 100)
 
     }  
     });
@@ -463,7 +463,7 @@ function onPlaceChanged() {
 function search() {
   const search = {
     bounds: map.getBounds(),
-    types: ["hospital"],
+    types: ["pharmacy"],
   };
   places.nearbySearch(search, (results, status, pagination) => {
     if (status === google.maps.places.PlacesServiceStatus.OK && results) {
@@ -481,10 +481,10 @@ function search() {
           animation: google.maps.Animation.DROP,
           icon: {
             url:markerIcon,
-            size: new google.maps.Size(30, 30),
+            size: new google.maps.Size(600, 30),
             origin: new google.maps.Point(0, 0),
             anchor: new google.maps.Point(17, 34),
-            scaledSize: new google.maps.Size(30, 30)
+            scaledSize: new google.maps.Size(25, 30)
           },
         });
         const marker = new google.maps.Marker({
@@ -547,7 +547,7 @@ function addResult(result, i) {
   const markerLetter = String.fromCharCode("A".charCodeAt(0) + (i % 26));
   const markerIcon = MARKER_PATH  + ".png";
   const tr = document.createElement("tr");
-  tr.style.backgroundColor = i % 2 === 0 ? "#c7dded" : "#FFFFFF";
+  tr.style.backgroundColor = i % 2 === 0 ? "#f4d7e1" : "#FFFFFF";
 
   tr.onclick = function () {
     google.maps.event.trigger(markers[i], "click");
@@ -556,7 +556,7 @@ function addResult(result, i) {
   const nameTd = document.createElement("td");
   const icon = document.createElement("img");
   icon.src = markerIcon;
-  icon.style="width:25px;height:20px;";
+  icon.style="width:20px;height:25px;";
   icon.setAttribute("class", "placeIcon");
   icon.setAttribute("className", "placeIcon");
   const name = document.createTextNode(result.name);
