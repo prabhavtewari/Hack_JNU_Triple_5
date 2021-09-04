@@ -73,6 +73,7 @@ async function initMap() {
     panControl: false,
     zoomControl: false,
     streetViewControl: false,
+    style:styles["default"]
   });
 
   x=navigator.geolocation;
@@ -89,16 +90,7 @@ async function initMap() {
     });  
   }
 
-   // Add a style-selector control to the map.
-   const styleControl = document.getElementById("style-selector-control");
-   map.controls[google.maps.ControlPosition.TOP_LEFT].push(styleControl);
-   // Set the map's style to the initial value of the selector.
-   const styleSelector = document.getElementById("style-selector");
-   map.setOptions({ styles: styles[styleSelector.value] });
-   // Apply new JSON when the user selects a different style.
-   styleSelector.addEventListener("change", () => {
-     map.setOptions({ styles: styles[styleSelector.value] });
-   });
+
  
   infoWindow = new google.maps.InfoWindow({
     content: document.getElementById("info-content"),
@@ -124,15 +116,47 @@ async function initMap() {
       map,
       icon: {
         url:'https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/geocode-71.png',
-        size: new google.maps.Size(71, 71),
+        size: new google.maps.Size(10, 10),
         origin: new google.maps.Point(0, 0),
         anchor: new google.maps.Point(17, 34),
-        scaledSize: new google.maps.Size(35, 35)
+        scaledSize: new google.maps.Size(10, 10)
+
     }  
     });
 }
 const styles = {
-  default: [],
+  default: [
+
+    { "featureType": "administrative", 
+    "stylers": [ { "visibility": "off" } ] 
+},{ 
+    "featureType": "transit", 
+    "stylers": [ { "visibility": "off" } ] 
+},{ 
+    "featureType": "poi.attraction", 
+    "stylers": [ { "visibility": "off" } ] 
+},{ 
+    "featureType": "poi.business", 
+    "stylers": [ { "visibility": "off" } ] 
+},{ 
+    "featureType": "poi.government", 
+    "stylers": [ { "visibility": "off" } ] 
+},{ 
+    "featureType": "poi.park", 
+    "elementType": "labels", 
+    "stylers": [ { "visibility": "off" } ]
+},{ 
+    "featureType": "poi.place_of_worship", 
+    "stylers": [ { "visibility": "off" } ] 
+},{ 
+    "featureType": "poi.school", 
+    "stylers": [ { "visibility": "off" } ] 
+},{ 
+    "featureType": "poi.sports_complex", 
+    "stylers": [ { "visibility": "off" } ] 
+}
+
+  ],
   silver: [
     {
       elementType: "geometry",
@@ -431,7 +455,7 @@ function onPlaceChanged() {
 
   if (place.geometry && place.geometry.location) {
     map.panTo(place.geometry.location);
-    map.setZoom(15);
+    map.setZoom(16);
     search();
   } else {
     document.getElementById("autocomplete").placeholder = "Enter a city";
@@ -458,17 +482,23 @@ function search() {
         markers[i] = new google.maps.Marker({
           position: results[i].geometry.location,
           animation: google.maps.Animation.DROP,
-          icon: markerIcon,
+          icon: {
+            url:markerIcon,
+            size: new google.maps.Size(30, 30),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(17, 34),
+            scaledSize: new google.maps.Size(30, 30)
+          },
         });
         const marker = new google.maps.Marker({
           position: myLatlng,
           map,
           icon: {
             url:'https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/geocode-71.png',
-            size: new google.maps.Size(71, 71),
+            size: new google.maps.Size(10, 10),
             origin: new google.maps.Point(0, 0),
             anchor: new google.maps.Point(17, 34),
-            scaledSize: new google.maps.Size(35, 35)
+            scaledSize: new google.maps.Size(10, 10)
         }  
         });
         // If the user clicks a hospital marker, show the details of that hospital
@@ -520,7 +550,7 @@ function addResult(result, i) {
   const markerLetter = String.fromCharCode("A".charCodeAt(0) + (i % 26));
   const markerIcon = MARKER_PATH  + ".png";
   const tr = document.createElement("tr");
-  tr.style.backgroundColor = i % 2 === 0 ? "#F0F0F0" : "#FFFFFF";
+  tr.style.backgroundColor = i % 2 === 0 ? "#c7dded" : "#FFFFFF";
 
   tr.onclick = function () {
     google.maps.event.trigger(markers[i], "click");
@@ -529,6 +559,7 @@ function addResult(result, i) {
   const nameTd = document.createElement("td");
   const icon = document.createElement("img");
   icon.src = markerIcon;
+  icon.style="width:40px;";
   icon.setAttribute("class", "placeIcon");
   icon.setAttribute("className", "placeIcon");
   const name = document.createTextNode(result.name);
