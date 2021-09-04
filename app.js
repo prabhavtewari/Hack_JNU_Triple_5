@@ -49,6 +49,9 @@ app.get('/',(req,res)=>{
 app.get('/call',(req,res)=>{
   res.render('call')
 })
+app.get('/symptom',(req,res)=>{
+  res.render('symptom')
+})
 app.get('/patientsignup',(req,res)=>{
     res.render('patientsignup')
 })
