@@ -4,8 +4,7 @@ let infoWindow;
 let markers = [];
 let autocomplete;
 const countryRestrict = { country: "ind" };
-const MARKER_PATH =
-  "https://developers.google.com/maps/documentation/javascript/images/marker_green";
+const MARKER_PATH ="img/HospitalMarker";
 const hostnameRegexp = new RegExp("^https?://.+?/");
 const countries = {
   ind: {
@@ -454,7 +453,7 @@ function search() {
       // assign a letter of the alphabetic to each marker icon.
       for (let i = 0; i < results.length; i++) {
         const markerLetter = String.fromCharCode("A".charCodeAt(0) + (i % 26));
-        const markerIcon = MARKER_PATH + markerLetter + ".png";
+        const markerIcon = MARKER_PATH  + ".png";
         // Use marker animation to drop the icons incrementally on the map.
         markers[i] = new google.maps.Marker({
           position: results[i].geometry.location,
@@ -519,7 +518,7 @@ function dropMarker(i) {
 function addResult(result, i) {
   const results = document.getElementById("results");
   const markerLetter = String.fromCharCode("A".charCodeAt(0) + (i % 26));
-  const markerIcon = MARKER_PATH + markerLetter + ".png";
+  const markerIcon = MARKER_PATH  + ".png";
   const tr = document.createElement("tr");
   tr.style.backgroundColor = i % 2 === 0 ? "#F0F0F0" : "#FFFFFF";
 
