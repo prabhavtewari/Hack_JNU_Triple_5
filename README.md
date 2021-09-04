@@ -5,7 +5,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/prabhavtewari/Sage_Hack_JNU_Triple_5/blob/main/public/img/logo.png">
-    <img src="./public/img/logo.png" alt="Logo" width="100" >
+    <img src="./public/img/logo.png" alt="Logo" width="100" style="background-color: azure;border-radius:3px;">
   </a>
 
   <h3 align="center">Sage</h3>
