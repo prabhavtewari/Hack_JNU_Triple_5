@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    font-size: 20px;
+  }
+
+  .centered {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .video-position {
+    height: 90vh;
+    width: 100vh;
+  }
+
+  #video-chat-container {
+    width: 100%;
+    background-color: black;
+  }
+
+  #local-video {
+    position: absolute;
+    height: 30vh;
+    bottom: 10vh;
+    left: 0;
+  }
+
+  #remote-video {
+    height: 100%;
+    width: 100%;
+  }
+
+  .bottombar 
+  {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 10vh;
+      display: flex;
+      justify-content: center;
+      width: 100vw;
+
+  }
+  .bottombar img{
+      height: 40px;
+      padding-top:10px ;
+      margin: 0 10px;
+
+  }

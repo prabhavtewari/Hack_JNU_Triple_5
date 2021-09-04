@@ -74,6 +74,30 @@
         </div>
     </header>
 
+
+
+    <!-- banner part start-->
+    <section class="banner_part">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-xl-5">
+                    <div class="banner_text">
+                        <div class="banner_text_iner">
+                            <div class="deliverhead">Book an online appointment with a doctor.</div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="banner_img">
+                        <img src="img/compdoc.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- banner part start-->
+
     <section class="bookcont">
         <div class="grid">
   
@@ -82,14 +106,54 @@
                 <span><%= doc.name %> </span>
                <span> Specialization : <%= doc.specialization %></span>
                <span> Phone : <%= doc.phone %> </span>
-                <button class="btn_2">Book</button>
+                <button  type="button" class="btn btn-primary btn_2" data-toggle="modal" data-target="#MyModal">Book</button>
             </div>
 
     <% }) %>
         </div>
 
     </section>
+    <div class="modal fade" id="MyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Book an Appointment</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            <form class="modalform" action="submit">
+                <select name="doctor" class="form-control" id="doctor">
+                    <% doctors.forEach(function(doc,i){ %>
 
+                    <option value="<%=doc._id%>"><%=doc.name%></option>
+                    <%})%>
+                </select>
+              <input type="date" class="form-control"/>
+              <select name="slot" id="slot" class="form-control">
+                  <option value="1">8:00 AM - 8:30 AM</option>
+                  <option value="1">8:30 AM - 9:00 AM</option>
+                  <option value="1">9:00 AM - 9:30 AM</option>
+                  <option value="1">9:30 AM - 10:00 AM</option>
+                  <option value="1">10:00 AM - 10:30 AM</option>
+                  <option value="1">10:30 AM - 11:00 AM</option>
+                  <option value="1">11:30 AM - 12:00 PM</option>
+                  <option value="1">12:00 PM - 12:30 PM</option>
+                  <option value="1">1:00 PM - 1:30 PM</option>
+                  <option value="1">1:30 PM - 2:00 PM</option>
+
+              </select>
+
+            </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
+              <button type="button" class="btn btn-primary">BOOK</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
     <footer class="footer-area">
         <div class="footer section_padding">

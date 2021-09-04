@@ -3,46 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WebRTC</title>
+    <title>SAGE</title>
+    <link rel="stylesheet" href="styles/call.css">
 
-    <style type="text/css">
-      body {
-        margin: 0;
-        font-size: 20px;
-      }
-
-      .centered {
-        position: absolute;
-        top: 40%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-
-      .video-position {
-        position: absolute;
-        top: 35%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-
-      #video-chat-container {
-        width: 100%;
-        background-color: black;
-      }
-
-      #local-video {
-        position: absolute;
-        height: 30%;
-        width: 30%;
-        bottom: 0px;
-        left: 0px;
-      }
-
-      #remote-video {
-        height: 100%;
-        width: 100%;
-      }
-    </style>
   </head>
 
   <body>
@@ -53,6 +16,13 @@
     <div id="video-chat-container" class="video-position" style="display: none">
       <video id="local-video" autoplay="autoplay" muted="muted"></video>
       <video id="remote-video" autoplay="autoplay"></video>
+    </div>
+    <div class="bottombar">
+
+      <img src="img/mic.png" alt="">
+      <img src="img/vid.png" alt="">
+      <img src="img/call.png" alt="">
+
     </div>
 
     <script src="/socket.io/socket.io.js"></script>

@@ -6269,3 +6269,24 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Playfair Display", serif;
   font-weight: 800;
 }
+
+.modalform input
+{
+  margin: 10px 0;
+}
+.modal-title
+{
+  font-family: inherit;
+}
+
+.formwrap{
+width: 70vw;
+margin: 0px auto;
+}
+.docsignup
+{
+  text-align: center;
+  font-family: inherit;
+  font-weight: 400;
+  margin-top: 20px;
+}
