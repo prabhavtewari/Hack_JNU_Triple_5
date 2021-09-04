@@ -20,6 +20,7 @@ const io = require('socket.io')(server)
 
 //Mongo connection and listen
 const dbURI = env.MONGO_URI;
+var secret = env.SECRET;
 mongoose.connect(dbURI, {useNewUrlParser:true,useUnifiedTopology:true})
     .then((result)=> {
         console.log('Connected to DB');
@@ -31,6 +32,35 @@ mongoose.connect(dbURI, {useNewUrlParser:true,useUnifiedTopology:true})
     })
     .catch((err) => console.log(err));
 
+//login errors
+    const handleErrors = (err) => {
+      console.log(err.message, err.code);
+      let errors = { uname: '', password: '' };
+    
+      // incorrect uname
+      if (err.message === 'incorrect username') {
+        errors.uname = 'That username is not registered';
+      }
+    
+      // incorrect password
+      if (err.message === 'incorrect password') {
+        errors.password = 'That password is incorrect';
+      }
+    
+      // validation errors
+      if (err.message.includes('user validation failed')) {
+        // console.log(err);
+        Object.values(err.errors).forEach(({ properties }) => {
+          // console.log(val);
+          // console.log(properties);
+          errors[properties.path] = properties.message;
+        });
+      }
+  }
+  
+  const createToken = (id) => {
+      return jwt.sign({ id }, secret);
+    };
 
 
 //view engine
@@ -63,6 +93,50 @@ app.get('/patientsignup',(req,res)=>{
 })
 app.get('/doctorsignup',(req,res)=>{
     res.render('doctorsignup')
+})
+app.get('/userlogin',(req,res)=>{
+  res.render('userlogin')
+})
+app.get('/doctorlogin',(req,res)=>{
+  res.render('doctorlogin')
+})
+app.get('/userlogout',(req,res)=>{
+  res.cookie('user', '', { maxAge: 1 });
+  res.render('/')
+})
+app.get('/doctorlogout',(req,res)=>{
+  res.cookie('doc', '', { maxAge: 1 });
+  res.render('/')
+})
+app.post('/userlogin',async (req,res)=>{
+  const { email, password } = req.body;
+
+try {
+  const user = await User.login(email, password);
+  const token = createToken(user._id);
+  res.cookie('user', token, { httpOnly: true});
+  res.status(200).json({ user: user._id });
+} 
+catch (err) {
+  const errors = handleErrors(err);
+  res.status(400).json({ errors });
+}
+
+})
+app.post('/doctorlogin',async (req,res)=>{
+  const { email, password } = req.body;
+
+try {
+  const doc = await Doctor.login(email, password);
+  const token = createToken(doc._id);
+  res.cookie('doc', token, { httpOnly: true});
+  res.status(200).json({ doc: doc._id });
+} 
+catch (err) {
+  const errors = handleErrors(err);
+  res.status(400).json({ errors });
+}
+
 })
 app.get('/bookappointment',async (req,res)=>{
   await Doctor.find()
