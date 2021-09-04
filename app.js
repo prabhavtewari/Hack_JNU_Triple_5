@@ -126,6 +126,7 @@ catch (err) {
 }
 
 })
+
 app.post('/doctorlogin',async (req,res)=>{
   const { email, password } = req.body;
 
@@ -139,6 +140,7 @@ catch (err) {
   const errors = handleErrors(err);
   res.status(400).json({ errors });
 }
+})
 
 app.get('/pharmacylocator',(req,res)=>{
     res.render('pharmalocator')
