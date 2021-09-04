@@ -1,33 +1,27 @@
 const mongoose = require('mongoose');
 
-const userSchema = new mongoose.Schema({
-  email: {
-    type: String,
-    required: [true, 'Please enter an username'],
-    unique: true,
-    lowercase: true,
-  },
-  password: {
-    type: String,
-    required: [true, 'Please enter a password'],
-    minlength: [6, 'Minimum password length is 6 characters'],
-  }
-});
+const docSchema = new mongoose.Schema({
+  email: String,
+  password: String,
+  specialization: String,
+  name: String,
+  phone: number
+},{timestamps:true});
 
 
-// static method to login user
-userSchema.statics.login = async function(uname, password) {
-  const user = await this.findOne({ uname }).catch(err=>{console.log(err)});
-  if (user) {
-    const auth = (password === user.password);
+// static method to login doc
+docSchema.statics.login = async function(email, password) {
+  const doc = await this.findOne({ email }).catch(err=>{console.log(err)});
+  if (doc) {
+    const auth = (password === doc.password);
     if (auth) {
-      return user;
+      return doc;
     }
     throw Error('incorrect password');
   }
   throw Error('incorrect username');
 };
 
-const User = mongoose.model('user', userSchema);
+const Doctor = mongoose.model('doctor', docSchema);
 
-module.exports = User;
+module.exports = Doctor;
