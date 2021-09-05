@@ -6,7 +6,7 @@
 }
 
 /* line 1, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_extends.scss */
-.btn_1, .btn_2, .regervation_part .btn_2:hover {
+.btn_1, .btn_2,.btn_3, .regervation_part .btn_2:hover {
   background-image: -webkit-linear-gradient(to right, #649bff, #0070fa, #649bff);
   background-image: -o-linear-gradient(to right, #649bff, #0070fa, #649bff);
   background-image: linear-gradient(to right, #649bff, #0070fa, #649bff);
@@ -552,7 +552,7 @@ ul {
 }
 
 /* line 65, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_button.scss */
-.btn_2 {
+.btn_2,.btn_3 {
   display: inline-block;
   padding: 16px 45px;
   text-align: center;
@@ -570,7 +570,7 @@ ul {
 }
 
 /* line 81, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_button.scss */
-.btn_2:hover {
+.btn_2:hover,.btn_3:hover {
   color: #fff;
   background-position: center right;
 }
@@ -6283,10 +6283,67 @@ h1, h2, h3, h4, h5, h6 {
 width: 70vw;
 margin: 0px auto;
 }
+.formwrap1{
+width:fit-content;
+margin: 0px auto;
+text-align: center;
+margin-top: 50px;
+margin-bottom: 50px;
+
+}
+.formwrap2{
+width:fit-content;
+margin: 0px auto;
+text-align: center;
+margin-top: 80px;
+margin-bottom: 50px;
+
+}
+.viewcard
+{
+  border-style: solid;
+  border-radius: 5px;
+  border-color: #0065e1;
+  padding: 10px;
+  margin-top: 20px;
+}
 .docsignup
 {
   text-align: center;
   font-family: inherit;
   font-weight: 400;
   margin-top: 20px;
+}
+.btn_3
+{
+  height: fit-content;
+  padding: 5px 40px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+.formwrap1 div  .btn_3
+{
+  margin: 10px 20px;
+}
+
+.herotxt
+{
+font-family: inherit;
+text-align: center;
+font-weight: 400;
+margin-top: 120px;
+}
+.waitingapp
+{
+  font-weight: 600;
+}
+.viewcard .btn_3{
+margin-top: 10px;
+}
+
+.completed
+{
+  font-weight: 800;
+  color: green;
 }
