@@ -30,7 +30,7 @@ table {
   -ms-flex-align: center;
   align-items: center;
   background: rgb(255, 255, 255);
-  border-radius: 0px 40px 40px 0px;
+  border-radius: 0px 10px 10px 0px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

@@ -98,16 +98,28 @@ app.get('/diagonisticlocator',(req,res)=>{
 app.get('/patientsignup',(req,res)=>{
     res.render('patientsignup')
 })
+app.get('/psignup',(req,res)=>{
+    res.render('patientsignup')
+})
 app.get('/homediagnosis',(req,res)=>{
     res.render('homediagnosis')
 })
 app.get('/doctorsignup',(req,res)=>{
     res.render('doctorsignup')
 })
+app.get('/dsignup',(req,res)=>{
+    res.render('doctorsignup')
+})
 app.get('/userlogin',(req,res)=>{
   res.render('userlogin')
 })
+app.get('/plogin',(req,res)=>{
+  res.render('userlogin')
+})
 app.get('/doctorlogin',(req,res)=>{
+  res.render('doctorlogin')
+})
+app.get('/dlogin',(req,res)=>{
   res.render('doctorlogin')
 })
 app.get('/userlogout',(req,res)=>{
