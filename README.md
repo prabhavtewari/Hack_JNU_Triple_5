@@ -59,17 +59,17 @@ Have you ever spent your time endlessly scrolling through google after a cold or
 We should not have to deal with that, and therefore with the rising cases of misunderstood self-treatments and concerns for common healthcare in general, Team Triple_5 created Sage to amalgamate all the necessary steps for online treatment in a simple easy to use web application.
 
 
-  <p align='center'><img src=public\img\screenshots\1.jpg>
+  <p align='center'><img src="public/img/screenshots/1.JPG">
 <p align="center">
 
 ### Architecture Diagram
 
-<p align='center'><img src=public\img\screens\ArchitectureDiagram.jpg>
+<p align='center'><img src="screens/AchitectureDiagram.jpg">
 <p align="center">
 
 ### Competetive Analysis
 
-<p align='center'><img src=public\img\screens\CompiAnalysis.jpg>
+<p align='center'><img src="screens/CompiAnalysis.jpg">
 <p align="center">
 
 ### Built With
@@ -127,11 +127,11 @@ We should not have to deal with that, and therefore with the rising cases of mis
   ***
 ## How To Use
 Pharmacy Locator
-<p align='center'><img src=public\img\screenshots\2.jpg>
+<p align='center'><img src="public/img/screenshots/2.JPG">
 <p align="center">
 
 Diagnostic Centre Locator
-<p align='center'><img src=public\img\screenshots\3.jpg>
+<p align='center'><img src="public/img/screenshots/3.JPG">
 <p align="center">
 
 
