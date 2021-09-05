@@ -220,7 +220,7 @@ app.get('/test/:id',async (req,res)=>{
         console.log(err);
     });
     else{
-
+      res.redirect('back')
     }
     })
     .catch((err)=>{
