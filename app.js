@@ -210,19 +210,41 @@ app.get('/accept/:id',requireDoc,async (req,res)=>{
 })
 app.get('/test/:id',async (req,res)=>{
   let apid = req.params.id;
-  await Appoint.findByIdAndUpdate(apid,{status:"test"})
+  await Appoint.findById(apid)
+    .then(async (result)=>{
+      if(result.status=="call")await Appoint.findByIdAndUpdate(apid,{status:"test"})
+      .then((result)=>{
+        res.redirect('back')
+      })
+      .catch((err)=>{
+        console.log(err);
+    });
+    else{
+
+    }
+    })
+    .catch((err)=>{
+      console.log(err);
+  }); 
+})
+app.post('/add-test',async (req,res)=>{
+  let apid = req.body.apid;
+  let tests = req.body.test;
+  console.log(tests,apid);
+  await Appoint.findByIdAndUpdate(apid,{tests:tests,status:"med"})
     .then((result)=>{
-      res.redirect('back')
+      res.redirect('/docappointment')
     })
     .catch((err)=>{
       console.log(err);
   });
 })
-app.get('/test/:id',async (req,res)=>{
-  let apid = req.params.id;
-  await Appoint.findByIdAndUpdate(apid,{status:"test"})
+app.post('/add-med',async (req,res)=>{
+  let apid = req.body.apid;
+  let meds = req.body.med;
+  await Appoint.findByIdAndUpdate(apid,{meds:meds,status:"completed"})
     .then((result)=>{
-      res.redirect('back')
+      res.redirect('/docappointment')
     })
     .catch((err)=>{
       console.log(err);

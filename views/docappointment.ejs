@@ -20,17 +20,17 @@
             <button onclick="window.location.href='/call/<%=ap._id%>'">Join Call</button>
         <%}%>
         <%if(ap.status=="test"){%>
-            <form action="/add-test/<%=ap._id%>" method="post">
+            <form action="/add-test" method="post">
                 <textarea name="test" id="" cols="30" rows="10"></textarea>
-            
+                <input type="hidden" name="apid" value="<%=ap._id%>">
             <button type="submit">Prescribe Tests</button>
             </form>
             <button onclick="window.location.href='/call/<%=ap._id%>'">Join Call</button>
         <%}%>
         <%if(ap.status=="med"){%>
-            <form action="/add-med/<%=ap._id%>" method="post">
+            <form action="/add-med" method="post">
                 <textarea name="med" id="" cols="30" rows="10"></textarea>
-            
+                <input type="hidden" name="apid" value="<%=ap._id%>">
             <button type="submit">Prescribe Medication</button>
             </form>
             <button onclick="window.location.href='/call/<%=ap._id%>'">Join Call</button>

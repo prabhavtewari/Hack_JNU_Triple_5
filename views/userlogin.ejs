@@ -4,16 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/style.css">
     <title>Document</title>
 </head>
 <body>
+  <h2 class="docsignup">User Login</h2>
+  <div class="formwrap">
     <form class="form1">
+      
         Email :
-        <input type="text" name="email" placeholder=""><br>
+        <input class="form-control" type="text" name="email" placeholder=""><br>
         Password :
-        <input type="password" placeholder="" name="password"><br>
-        <button class="" type="submit">Login</button>
+        <input class="form-control" type="password" placeholder="" name="password"><br>
+        <button class="form-control" class="" type="submit">Login</button>
     </form>
+    </div>
     <script>
       const form = document.querySelector('.form1');
 
@@ -48,5 +54,7 @@
         }
       });
     </script>
+        <script src="assets/jquery-1.12.1.min.js"></script>
+        <script src="assets/bootstrap.min.js"></script>
 </body>
 </html>
