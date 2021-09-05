@@ -12,18 +12,31 @@
     <div>
         <%=ap.date%> <br>
         <%=ap.slot%> <br>
-        <%=ap.docname%> <br>
+        <%=ap.patname%> <br>
         <%if(ap.status=="wait"){%>
             <button onclick="window.location.href='/accept/<%=ap._id%>'">Accept</button>
         <%}%>
         <%if(ap.status=="call"){%>
-            <button onclick="window.location.href='/call'">Join Call</button>
+            <button onclick="window.location.href='/call/<%=ap._id%>'">Join Call</button>
         <%}%>
         <%if(ap.status=="test"){%>
-            <button onclick="alert('<%=ap.tests%>')">Prescribe Tests</button>
+            <form action="/add-test/" method="post">
+                <textarea name="test" id="" cols="30" rows="10"></textarea>
+            
+            <button type="submit">Prescribe Tests</button>
+            </form>
+            <button onclick="window.location.href='/call/<%=ap._id%>'">Join Call</button>
         <%}%>
         <%if(ap.status=="med"){%>
-            <button onclick="alert('<%=ap.meds%>')">Prescribe Medication</button>
+            <form action="/add-med/" method="post">
+                <textarea name="med" id="" cols="30" rows="10"></textarea>
+            
+            <button type="submit">Prescribe Medication</button>
+            </form>
+            <button onclick="window.location.href='/call/<%=ap._id%>'">Join Call</button>
+        <%}%>
+        <%if(ap.status=="completed"){%>
+           Completed
         <%}%>
     </div>
     <%}})%>

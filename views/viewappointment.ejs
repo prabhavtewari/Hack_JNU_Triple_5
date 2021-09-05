@@ -12,17 +12,19 @@
     <div>
         <%=ap.date%> <br>
         <%=ap.slot%> <br>
-        <%=ap.docname%> <br>
+        Dr. <%=ap.docname%> <br>
         <%if(ap.status=="wait"){%>
             Waiting Approval
         <%}%>
         <%if(ap.status=="call"){%>
-            <button onclick="window.location.href='/call'">Join Call</button>
+            <button onclick="window.location.href='/call/<%=ap._id%>'">Join Call</button>
         <%}%>
         <%if(ap.status=="test"){%>
             <button onclick="alert('<%=ap.tests%>')">View Tests</button>
+            <button onclick="window.location.href='/call/<%=ap._id%>'">Join Call</button>
         <%}%>
-        <%if(ap.status=="med"){%>
+        <%if(ap.status=="med" || ap.status=="completed"){%>
+            <button onclick="alert('<%=ap.tests%>')">View Tests</button>
             <button onclick="alert('<%=ap.meds%>')">View Medication</button>
         <%}%>
     </div>
