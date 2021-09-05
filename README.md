@@ -126,11 +126,37 @@ We should not have to deal with that, and therefore with the rising cases of mis
   
   ***
 ## How To Use
-Pharmacy Locator
+  
+ With the help of the AI symptom checker, Sage first checks and determines what might be the particular disease or problem that you are facing using the  EndlessMedical API.
+  
+
+<p align='center'><img src="screens/screen2.jpg">
+<p align="center">
+
+  ***
+  
+Booking appointments online has never been easier with the help of Sage where patients can book appointments with registered doctors according to the required specialization and communicate or consult with them seamlessly through a video call.
+  
+Book Appointment:  
+  
+<p align='center'><img src="screens/screen3.jpg">
+  <p align="center">
+    
+    
+ View Appointment:
+    
+  <p align='center'><img src="screens/screen4.jpg">
+  <p align="center">
+    
+  ***
+  
+  Find Diagnostic Centres and Pharmacies near you or anywhere that you search using google maps which displays them with all the relevant details and locations.
+  
+Pharmacy Locator:
 <p align='center'><img src="public/img/screenshots/2.JPG">
 <p align="center">
 
-Diagnostic Centre Locator
+Diagnostic Centre Locator:
 <p align='center'><img src="public/img/screenshots/3.JPG">
 <p align="center">
 
