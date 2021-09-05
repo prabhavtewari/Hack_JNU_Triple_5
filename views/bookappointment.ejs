@@ -123,33 +123,34 @@
               </button>
             </div>
             <div class="modal-body">
-            <form class="modalform" action="submit">
-                <select name="doctor" class="form-control" id="doctor">
+            <form class="modalform" action="/bookappointment" method="post">
+                <select name="docid" class="form-control" id="doctor">
                     <% doctors.forEach(function(doc,i){ %>
 
                     <option value="<%=doc._id%>"><%=doc.name%></option>
                     <%})%>
                 </select>
-              <input type="date" class="form-control"/>
+              <input type="date" name="date" class="form-control"/>
+              <input type="hidden" name="patid" value="<%=userl._id%>">
+              <input type="hidden" name="patname" value="<%=userl.name%>">
               <select name="slot" id="slot" class="form-control">
-                  <option value="1">8:00 AM - 8:30 AM</option>
-                  <option value="1">8:30 AM - 9:00 AM</option>
-                  <option value="1">9:00 AM - 9:30 AM</option>
-                  <option value="1">9:30 AM - 10:00 AM</option>
-                  <option value="1">10:00 AM - 10:30 AM</option>
-                  <option value="1">10:30 AM - 11:00 AM</option>
-                  <option value="1">11:30 AM - 12:00 PM</option>
-                  <option value="1">12:00 PM - 12:30 PM</option>
-                  <option value="1">1:00 PM - 1:30 PM</option>
-                  <option value="1">1:30 PM - 2:00 PM</option>
+                  <option value="8:00 AM - 8:30 AM">8:00 AM - 8:30 AM</option>
+                  <option value="8:30 AM - 9:00 AM">8:30 AM - 9:00 AM</option>
+                  <option value="9:00 AM - 9:30 AM">9:00 AM - 9:30 AM</option>
+                  <option value="9:30 AM - 10:00 AM">9:30 AM - 10:00 AM</option>
+                  <option value="10:00 AM - 10:30 AM">10:00 AM - 10:30 AM</option>
+                  <option value="10:30 AM - 11:00 AM">10:30 AM - 11:00 AM</option>
+                  <option value="11:30 AM - 12:00 PM">11:30 AM - 12:00 PM</option>
+                  <option value="12:00 PM - 12:30 PM">12:00 PM - 12:30 PM</option>
+                  <option value="1:00 PM - 1:30 PM">1:00 PM - 1:30 PM</option>
+                  <option value="1:30 PM - 2:00 PM">1:30 PM - 2:00 PM</option>
 
               </select>
-
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
+                <button type="submit" class="btn btn-primary">BOOK</button>
+              </div>
             </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
-              <button type="button" class="btn btn-primary">BOOK</button>
             </div>
           </div>
         </div>

@@ -11,6 +11,7 @@ const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
 const request = require('request');
 var favicon = require('serve-favicon');
+const{ requireAuth, checkUser ,requireDoc,checkDoc} = require('./middleware/authMiddleware') 
 
 
 //app
@@ -72,6 +73,12 @@ app.use(express.urlencoded({ extended:true }));
 app.use(express.json());
 app.use(cookieParser());
 app.use(morgan('dev'));
+app.use((req, res, next) => {
+  res.locals.path = req.path;
+  next();
+});
+app.get('*', checkUser);
+app.get('*', checkDoc);
 
 app.get('/',(req,res)=>{
     res.render('index')
@@ -151,10 +158,46 @@ app.get('/onlinepharma',(req,res)=>{
 app.get('/homepharmacy',(req,res)=>{
     res.render('onlinepharma')
 })
-app.get('/bookappointment',async (req,res)=>{
+app.get('/bookappointment',requireAuth,async (req,res)=>{
   await Doctor.find()
     .then((result)=>{
       res.render('bookappointment',{doctors:result})
+    })
+    .catch((err)=>{
+      console.log(err);
+  });
+})
+app.get('/viewappointment',requireAuth,async (req,res)=>{
+  await Appoint.find()
+    .then((result)=>{
+      res.render('viewappointment',{appoint:result})
+    })
+    .catch((err)=>{
+      console.log(err);
+  });
+})
+app.get('/docappointment',requireDoc,async (req,res)=>{
+  await Appoint.find()
+    .then((result)=>{
+      res.render('docappointment',{appoint:result})
+    })
+    .catch((err)=>{
+      console.log(err);
+  });
+})
+app.post('/bookappointment',async (req,res)=>{
+  const appoint = new Appoint(req.body);
+  await Doctor.findById(appoint.docid)
+    .then((result)=>{
+      appoint.docname = result.name;
+      appoint.save()
+         .then((result)=>{
+             res.redirect(`/viewappointment`)
+        })
+        .catch((err)=>{
+             console.log(err);
+        });
+
     })
     .catch((err)=>{
       console.log(err);

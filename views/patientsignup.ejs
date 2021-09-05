@@ -4,22 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/style.css">
     <title>Document</title>
 </head>
 <body>
-    <h2>Patient Signup</h2>
+    <h2 class="docsignup">Patient Signup</h2>
+    <div class="formwrap">
     <form action="/patientsignup" method="post">
         Name:
-        <input type="text" name="name"><br>
+        <input class="form-control" type="text" name="name"><br>
         Address:
-        <textarea name="address" id="" cols="30" rows="10"></textarea><br>
+        <textarea class="form-control" name="address" id="" cols="10" rows="3"></textarea><br>
         Phone:
-        <input type="text" name="phone"><br>
+        <input class="form-control" type="text" name="phone"><br>
         Email:
-        <input type="text" name="email"><br>
+        <input class="form-control" type="text" name="email"><br>
         Password:
-        <input type="password" name="password"><br>
-        <input type="submit"><br>
+        <input class="form-control" type="password" name="password"><br>
+        <input class="form-control" type="submit"><br>
     </form>
+</div>
+
+<script src="assets/jquery-1.12.1.min.js"></script>
+<script src="assets/bootstrap.min.js"></script>
 </body>
 </html>

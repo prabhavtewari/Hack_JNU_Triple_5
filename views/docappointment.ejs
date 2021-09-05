@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <% appoint.forEach(function(ap,i){ %>
+        <% if(ap.docid==docl._id){ %>
+    <div>
+        <%=ap.date%> <br>
+        <%=ap.slot%> <br>
+        <%=ap.docname%> <br>
+        <%if(ap.status=="wait"){%>
+            <button onclick="window.location.href='/accept/<%=ap._id%>'">Accept</button>
+        <%}%>
+        <%if(ap.status=="call"){%>
+            <button onclick="window.location.href='/call'">Join Call</button>
+        <%}%>
+        <%if(ap.status=="test"){%>
+            <button onclick="alert('<%=ap.tests%>')">Prescribe Tests</button>
+        <%}%>
+        <%if(ap.status=="med"){%>
+            <button onclick="alert('<%=ap.meds%>')">Prescribe Medication</button>
+        <%}%>
+    </div>
+    <%}})%>
+</body>
+</html>
