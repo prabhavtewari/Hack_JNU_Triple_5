@@ -4,13 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SAGE</title>
-    <link rel="stylesheet" href="styles/call.css">
+    <link rel="stylesheet" href="/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/call.css">
 
   </head>
 
   <body>
     <div id="room-selection-container" class="centered">
-      <button id="connect-button">CONNECT</button>
+      <button class="btn btn-primary"id="connect-button">CONNECT</button>
     </div>
 
     <div id="video-chat-container" class="video-position" style="display: none">
@@ -19,9 +20,9 @@
     </div>
     <div class="bottombar">
 
-      <img src="img/mic.png" alt="">
-      <img src="img/vid.png" alt="">
-      <img src="img/call.png" alt="" onclick="console.log('Bye');window.history.back();">
+      <img style="cursor: pointer;" src="/img/mic.png" alt="">
+      <img style="cursor: pointer;" src="/img/vid.png" alt="">
+      <img style="cursor: pointer;" src="/img/call.png" alt="" onclick="console.log('Bye');window.location.href='/test/<%=apid%>';">
 
     </div>
 

@@ -83,8 +83,9 @@ app.get('*', checkDoc);
 app.get('/',(req,res)=>{
     res.render('index')
 })
-app.get('/call',(req,res)=>{
-  res.render('call')
+app.get('/call/:id',(req,res)=>{
+  let apid = req.params.id;
+  res.render('call',{apid:apid})
 })
 app.get('/symptom',(req,res)=>{
   res.render('symptom')
@@ -192,6 +193,36 @@ app.get('/docappointment',requireDoc,async (req,res)=>{
   await Appoint.find()
     .then((result)=>{
       res.render('docappointment',{appoint:result})
+    })
+    .catch((err)=>{
+      console.log(err);
+  });
+})
+app.get('/accept/:id',requireDoc,async (req,res)=>{
+  let apid = req.params.id;
+  await Appoint.findByIdAndUpdate(apid,{status:"call"})
+    .then((result)=>{
+      res.redirect('/docappointment')
+    })
+    .catch((err)=>{
+      console.log(err);
+  });
+})
+app.get('/test/:id',async (req,res)=>{
+  let apid = req.params.id;
+  await Appoint.findByIdAndUpdate(apid,{status:"test"})
+    .then((result)=>{
+      res.redirect('back')
+    })
+    .catch((err)=>{
+      console.log(err);
+  });
+})
+app.get('/test/:id',async (req,res)=>{
+  let apid = req.params.id;
+  await Appoint.findByIdAndUpdate(apid,{status:"test"})
+    .then((result)=>{
+      res.redirect('back')
     })
     .catch((err)=>{
       console.log(err);
