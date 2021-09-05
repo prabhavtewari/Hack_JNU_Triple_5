@@ -206,6 +206,16 @@ app.get('/test/:id',async (req,res)=>{
       console.log(err);
   });
 })
+app.get('/test/:id',async (req,res)=>{
+  let apid = req.params.id;
+  await Appoint.findByIdAndUpdate(apid,{status:"test"})
+    .then((result)=>{
+      res.redirect('back')
+    })
+    .catch((err)=>{
+      console.log(err);
+  });
+})
 app.post('/bookappointment',async (req,res)=>{
   const appoint = new Appoint(req.body);
   await Doctor.findById(appoint.docid)
